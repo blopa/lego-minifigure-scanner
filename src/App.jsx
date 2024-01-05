@@ -4,14 +4,15 @@ import { Button, Card, CardContent, Container, Typography, CardMedia } from '@mu
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 
 // Utils
-import {determineMinifigure, isEmptyObject} from './utils';
+import { determineMinifigure, isEmptyObject } from './utils';
+
+const codeReader = new BrowserMultiFormatReader();
 
 const MinifigureScanner = () => {
     const [minifigure, setMinifigure] = useState({});
     const [minifigureImage, setMinifigureImage] = useState('');
     const [scanning, setScanning] = useState(false);
     const videoRef = useRef(null);
-    const codeReader = new BrowserMultiFormatReader();
 
     useEffect(() => {
         // Effect to start video stream
@@ -28,7 +29,7 @@ const MinifigureScanner = () => {
         return () => {
             stopStream();
         };
-    }, [scanning, codeReader]);
+    }, [scanning]);
 
     const stopStream = () => {
         if (videoRef.current && videoRef.current.srcObject) {
