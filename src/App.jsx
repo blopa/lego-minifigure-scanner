@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
-import { Button, Card, CardContent, Container, Typography } from '@mui/material';
+import { Button, Card, CardContent, Container, Typography, CardMedia } from '@mui/material';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 
 // Utils
@@ -8,6 +8,7 @@ import {determineMinifigure, isEmptyObject} from './utils';
 
 const MinifigureScanner = () => {
     const [minifigure, setMinifigure] = useState({});
+    const [minifigureImage, setMinifigureImage] = useState('');
     const [scanning, setScanning] = useState(false);
     const videoRef = useRef(null);
     const codeReader = new BrowserMultiFormatReader();
@@ -37,14 +38,25 @@ const MinifigureScanner = () => {
     };
 
     const handleScan = () => {
-        // Check if the stream is already active to prevent starting it again
-        if (videoRef.current && videoRef.current.srcObject && videoRef.current.srcObject.active) {
-            console.log('Stream is already active.');
-            return;
-        }
-
+        setMinifigure({});
         setScanning(true);
     };
+
+    const generateMinifigureImage = async (imageName) => {
+        try {
+            const image = await import(`./images/${imageName}`);
+            setMinifigureImage(image.default);
+        } catch (err) {
+            console.error(err);
+            return '';
+        }
+    };
+
+    useEffect(() => {
+        if (minifigure?.image) {
+            generateMinifigureImage(minifigure.image);
+        }
+    }, [minifigure.image]);
 
     return (
         <Container maxWidth="sm">
@@ -58,6 +70,12 @@ const MinifigureScanner = () => {
                             <Typography variant="body1">
                                 Minifigure: {minifigure.name}
                             </Typography>
+                            <CardMedia
+                                component="img"
+                                image={minifigureImage}
+                                alt={minifigure.name}
+                                style={{ height: 'auto', maxWidth: '100%', marginTop: '20px' }}
+                            />
                         </>
                     )}
                     <Button
