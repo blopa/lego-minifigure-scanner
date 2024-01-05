@@ -4,10 +4,10 @@ import { Button, Card, CardContent, Container, Typography } from '@mui/material'
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 
 // Utils
-import { determineMinifigure } from './utils';
+import {determineMinifigure, isEmptyObject} from './utils';
 
 const MinifigureScanner = () => {
-    const [minifigure, setMinifigure] = useState('');
+    const [minifigure, setMinifigure] = useState({});
     const [scanning, setScanning] = useState(false);
     const videoRef = useRef(null);
     const codeReader = new BrowserMultiFormatReader();
@@ -37,6 +37,12 @@ const MinifigureScanner = () => {
     };
 
     const handleScan = () => {
+        // Check if the stream is already active to prevent starting it again
+        if (videoRef.current && videoRef.current.srcObject && videoRef.current.srcObject.active) {
+            console.log('Stream is already active.');
+            return;
+        }
+
         setScanning(true);
     };
 
@@ -47,10 +53,12 @@ const MinifigureScanner = () => {
                     <Typography variant="h5" gutterBottom>
                         Minifigure Scanner
                     </Typography>
-                    {minifigure && (
-                        <Typography variant="body1">
-                            Minifigure: {minifigure}
-                        </Typography>
+                    {!isEmptyObject(minifigure) && (
+                        <>
+                            <Typography variant="body1">
+                                Minifigure: {minifigure.name}
+                            </Typography>
+                        </>
                     )}
                     <Button
                         variant="contained"

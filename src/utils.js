@@ -1,16 +1,24 @@
-import usMexicoMapping from './json/us_mexico_minifigures.json';
-import euMapping from './json/eu_minifigures.json';
+import series25Mapping from './jsons/minifigure_series_25.json';
 
 export const determineMinifigure = (qrString) => {
     // Extract the region identifier and the figure code from the string
-    const regionIdentifier = qrString.match(/[RS]/);
+    const regionIdentifier = qrString.match(/[RS]/)?.at(0);
 
     // Extract the relevant part of the code
-    const minifigureCode = qrString.split(' ')[0];
+    const minifigureCode = qrString.split(' ')?.at(0);
 
-    // Determine the mapping based on the region
-    const mapping = regionIdentifier === 'R' ? usMexicoMapping : euMapping;
+    // Find the minifigure
+    const minifigure = series25Mapping.find(
+        (minifigure) => minifigure.codes.includes(`${regionIdentifier}${minifigureCode}`)
+    );
 
     // Return the minifigure name if found
-    return mapping[minifigureCode] || "Unknown Minifigure";
+    return minifigure || {
+        name: 'Unknown Minifigure',
+        image: "unknown.png",
+    };
 };
+
+export const isEmptyObject = (obj) => {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
+}

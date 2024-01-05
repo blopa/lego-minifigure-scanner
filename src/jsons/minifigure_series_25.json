@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Film Noir Detective",
+    "id": 1,
+    "image": "CMFS25FILMNOIR_1.webp",
+    "codes": [
+      "R6471965",
+      "S6472866"
+    ]
+  },
+  {
+    "name": "E-Sports Gamer",
+    "id": 2,
+    "image": "CMFS25ESPORTS_1.webp",
+    "codes": [
+      "R6471969",
+      "S6472870"
+    ]
+  },
+  {
+    "name": "Vampire Knight",
+    "id": 3,
+    "image": "CMFS25VAMPKNIGHT_1.webp",
+    "codes": [
+      "R6471970",
+      "S6472871"
+    ]
+  },
+  {
+    "name": "Sprinter",
+    "id": 4,
+    "image": "CMFS25SPRINTER_1.webp",
+    "codes": [
+      "R6471966",
+      "S6472867"
+    ]
+  },
+  {
+    "name": "Goatherd",
+    "id": 5,
+    "image": "CMFS25GOATHERD_1.webp",
+    "codes": [
+      "R6471962",
+      "S6472863"
+    ]
+  },
+  {
+    "name": "Mushroom Sprite",
+    "id": 6,
+    "image": "CMFS25SHROOM_1.webp",
+    "codes": [
+      "R6471961",
+      "S6472862"
+    ]
+  },
+  {
+    "name": "Fitness Instructor",
+    "id": 7,
+    "image": "CMFS25FITNESS_1.webp",
+    "codes": [
+      "R6471960",
+      "S6472861"
+    ]
+  },
+  {
+    "name": "Triceratops Costume Fan",
+    "id": 8,
+    "image": "CMFS25TRICERATOPS_1.webp",
+    "codes": [
+      "R6471968",
+      "S6472869"
+    ]
+  },
+  {
+    "name": "Harpy",
+    "id": 9,
+    "image": "CMFS25HARPY_1.webp",
+    "codes": [
+      "R6471963",
+      "S6472864"
+    ]
+  },
+  {
+    "name": "Train Kid",
+    "id": 10,
+    "image": "CMFS25TRAIN_1.webp",
+    "codes": [
+      "R6471964",
+      "S6472865"
+    ]
+  },
+  {
+    "name": "Fierce Barbarian",
+    "id": 11,
+    "image": "CMFS25BARBARIAN_1.webp",
+    "codes": [
+      "R6471959",
+      "S6472860"
+    ]
+  },
+  {
+    "name": "Pet Groomer",
+    "id": 12,
+    "image": "CMFS25GROOMER_1.webp",
+    "codes": [
+      "RR6471967",
+      "S6472868"
+    ]
+  }
+]
