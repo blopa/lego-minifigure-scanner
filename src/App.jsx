@@ -28,7 +28,7 @@ const MinifigureScanner = () => {
         return () => {
             stopStream();
         };
-    }, [scanning]);
+    }, [scanning, codeReader]);
 
     const stopStream = () => {
         if (videoRef.current && videoRef.current.srcObject) {
