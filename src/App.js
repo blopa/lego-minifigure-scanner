@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
+import {Button, Card, CardContent, Container, Typography} from "@mui/material";
+import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 
 // Utils
 import { determineMinifigure } from './utils';
@@ -36,13 +38,31 @@ const MinifigureScanner = () => {
     };
 
     return (
-        <div>
-            {minifigure && <p>Minifigure: {minifigure}</p>}
-            <button onClick={handleScan}>Scan Barcode</button>
-            {!minifigure && (
-                <video ref={videoRef} style={{width: '100%'}}/>
-            )}
-        </div>
+        <Container maxWidth="sm">
+            <Card>
+                <CardContent>
+                    <Typography variant="h5" gutterBottom>
+                        Minifigure Scanner
+                    </Typography>
+                    {minifigure && (
+                        <Typography variant="body1">
+                            Minifigure: {minifigure}
+                        </Typography>
+                    )}
+                    <Button
+                        variant="contained"
+                        startIcon={<QrCodeScannerIcon />}
+                        onClick={handleScan}
+                        style={{ marginTop: '20px' }}
+                    >
+                        Scan Barcode
+                    </Button>
+                    {!minifigure && (
+                        <video ref={videoRef} style={{ width: '100%' }} />
+                    )}
+                </CardContent>
+            </Card>
+        </Container>
     );
 };
 
