@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { BrowserMultiFormatReader } from '@zxing/library';
-import {Button, Card, CardContent, Container, Typography} from "@mui/material";
+import { Button, Card, CardContent, Container, Typography } from '@mui/material';
 import QrCodeScannerIcon from '@mui/icons-material/QrCodeScanner';
 
 // Utils
@@ -8,33 +8,36 @@ import { determineMinifigure } from './utils';
 
 const MinifigureScanner = () => {
     const [minifigure, setMinifigure] = useState('');
+    const [scanning, setScanning] = useState(false);
     const videoRef = useRef(null);
     const codeReader = new BrowserMultiFormatReader();
 
     useEffect(() => {
+        // Effect to start video stream
+        if (scanning) {
+            codeReader.decodeOnceFromVideoDevice(undefined, videoRef.current)
+                .then(result => {
+                    setMinifigure(determineMinifigure(result.text));
+                    setScanning(false);
+                })
+                .catch(err => console.error(err));
+        }
+
         // Clean up function to stop the video stream
         return () => {
-            if (videoRef.current && videoRef.current.srcObject) {
-                const tracks = videoRef.current.srcObject.getTracks();
-                tracks.forEach(track => track.stop());
-            }
+            stopStream();
         };
-    }, []);
+    }, [scanning]);
 
-    const handleScan = async () => {
-        try {
-            const result = await codeReader.decodeOnceFromVideoDevice(undefined, videoRef.current);
-            const code = result.text;
-            const figure = determineMinifigure(code);
-
-            // Stop video stream after successful scan
+    const stopStream = () => {
+        if (videoRef.current && videoRef.current.srcObject) {
             const tracks = videoRef.current.srcObject.getTracks();
             tracks.forEach(track => track.stop());
-
-            setMinifigure(figure);
-        } catch (error) {
-            console.error(error);
         }
+    };
+
+    const handleScan = () => {
+        setScanning(true);
     };
 
     return (
@@ -53,11 +56,12 @@ const MinifigureScanner = () => {
                         variant="contained"
                         startIcon={<QrCodeScannerIcon />}
                         onClick={handleScan}
+                        disabled={scanning}
                         style={{ marginTop: '20px' }}
                     >
                         Scan Barcode
                     </Button>
-                    {!minifigure && (
+                    {scanning && (
                         <video ref={videoRef} style={{ width: '100%' }} />
                     )}
                 </CardContent>
