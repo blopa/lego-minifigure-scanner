@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[232],{1232:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25TRICERATOPS_1.149688f6132ca6bdde4d.webp"}}]);

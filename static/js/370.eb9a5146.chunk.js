@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[370],{2370:(e,a,c)=>{e.exports=c.p+"static/media/CMFS25ESPORTS_1.aa354c3a8c869dfc9ef3.webp"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[908],{8908:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25FILMNOIR_1.265859be8b037fc876af.webp"}}]);

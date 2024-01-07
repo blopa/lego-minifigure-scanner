@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[100],{7100:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25FITNESS_1.b696bf2dfb2be568078d.webp"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[217],{217:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25VAMPKNIGHT_1.ecae76b2127e4df568c1.webp"}}]);

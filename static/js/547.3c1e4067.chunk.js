@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[547],{1547:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25HARPY_1.e3c6f6528fee3629ba11.webp"}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[944],{1944:(e,n,i)=>{e.exports=i.p+"static/media/unknown.9c031ebe83dd4a211747.png"}}]);

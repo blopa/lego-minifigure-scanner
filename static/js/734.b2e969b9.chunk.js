@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[734],{8734:(e,a,i)=>{e.exports=i.p+"static/media/CMFS25TRAIN_1.cfa8e1ea0a890a73e601.webp"}}]);

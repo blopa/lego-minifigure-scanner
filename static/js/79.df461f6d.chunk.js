@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklego_minifigure_scanner=self.webpackChunklego_minifigure_scanner||[]).push([[79],{7079:(e,i,s)=>{e.exports=s.p+"static/media/CMFS25GROOMER_1.f438d0d82d4af7b819b4.webp"}}]);
